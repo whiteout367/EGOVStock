@@ -8,5 +8,5 @@ import egovframework.example.sample.vo.StockVO;
 public interface StockMapper {
 	List<StockVO> selectStock(SearchVO searchVo) throws Exception;
 
-
+	List<StockVO> selectStockList(StockVO stockVo) throws Exception;
 }

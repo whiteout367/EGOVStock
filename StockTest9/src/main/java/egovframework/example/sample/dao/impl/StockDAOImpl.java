@@ -22,5 +22,11 @@ public class StockDAOImpl implements StockDAO {
         StockMapper mapper = sqlSession.getMapper(StockMapper.class);
         return mapper.selectStock(searchVo);
     }
+    
+    @Override
+    public List<StockVO> selectStockList(StockVO stockVo) throws Exception {
+        StockMapper mapper = sqlSession.getMapper(StockMapper.class);
+        return mapper.selectStockList(stockVo);
+    }
  
 }

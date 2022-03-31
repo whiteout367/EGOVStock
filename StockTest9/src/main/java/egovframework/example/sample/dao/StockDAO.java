@@ -8,5 +8,6 @@ import egovframework.example.sample.vo.StockVO;
 public interface StockDAO {
 	  public List<StockVO> selectStock(SearchVO searchVo) throws Exception;
 
-	 
+	  
+	  public List<StockVO> selectStockList(StockVO stockVo) throws Exception;
 }

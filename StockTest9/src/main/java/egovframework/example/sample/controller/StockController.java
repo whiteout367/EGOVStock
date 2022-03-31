@@ -1,11 +1,15 @@
 package egovframework.example.sample.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import egovframework.example.sample.service.StockService;
 import egovframework.example.sample.vo.SearchVO;
@@ -33,6 +37,17 @@ public class StockController {
         
         
         return "stockList";
+    }
+    
+    @RequestMapping(value = "/excelDown.do")
+
+    @ResponseBody
+
+    public void excelDown(@ModelAttribute StockVO stockVO, HttpServletResponse response
+                                                        , HttpServletRequest request) throws Exception{
+
+       stockService.excelDown(stockVO, response);
+
     }
 
 }

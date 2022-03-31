@@ -20,5 +20,9 @@
         
     </select>
     
-    
+     <select id="selectStockList" resultType="egovframework.example.sample.vo.StockVO">
+          SELECT * FROM stock
+        
+        
+    </select>
 </mapper>
