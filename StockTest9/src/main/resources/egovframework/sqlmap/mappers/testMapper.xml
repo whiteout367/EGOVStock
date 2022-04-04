@@ -25,4 +25,12 @@
         
         
     </select>
+    
+     <update id="updateStock" parameterType="egovframework.example.sample.vo.UpdateVO">
+        UPDATE stock SET
+        box = #{box}, stock = #{stock}
+        WHERE barcode = #{barcode}
+    </update>
+
+
 </mapper>

@@ -19,6 +19,7 @@ import egovframework.example.sample.dao.StockDAO;
 import egovframework.example.sample.service.StockService;
 import egovframework.example.sample.vo.SearchVO;
 import egovframework.example.sample.vo.StockVO;
+import egovframework.example.sample.vo.UpdateVO;
 
 @Service
 public class StockServiceImpl implements StockService{
@@ -30,6 +31,12 @@ public class StockServiceImpl implements StockService{
     public List<StockVO> selectStock(SearchVO searchVo) throws Exception {
         return stockDao.selectStock(searchVo);
     }
+    
+    @Override
+    public void updateStock(UpdateVO updateVo) throws Exception {
+        stockDao.updateStock(updateVo);
+    }
+
     
     @Override
 
