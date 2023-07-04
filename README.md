@@ -20,3 +20,15 @@ context-datasource.xml을 만드시고, 아래 내용을 추가해 주세요.
 
     
 </beans>
+
+## Result
+
+stockList.do
+![index](https://github.com/whiteout367/EGOVStock/assets/75378861/38e04784-9593-4ff5-afad-c01939ddbb1e)
+
+search
+![search](https://github.com/whiteout367/EGOVStock/assets/75378861/ed9f1611-dc8c-46f1-9e63-9f93b3acd3d7)
+
+excel_download
+![excel_download](https://github.com/whiteout367/EGOVStock/assets/75378861/5ac2bc6d-4d21-4b4d-a122-c14eb7ea2d13)
+
