@@ -10,10 +10,15 @@ import egovframework.example.sample.vo.UpdateVO;
 public interface StockDAO {
 	  public List<StockVO> selectStock(SearchVO searchVo) throws Exception;
 	  
+	  public StockVO selectDetail(int code)throws Exception;
+	  
 	  public int getBoardListCnt(SearchVO searchVo) throws Exception;
 	  
-	  public void updateStock(UpdateVO updateVo) throws Exception;
-
+	  public void updateStock(StockVO stockVo) throws Exception;
+	  
+	  public void insertStock(StockVO stockVo) throws Exception;
+	  
+	  public void deleteStock(int code) throws Exception;
 	  
 	  public List<StockVO> selectStockList(StockVO stockVo) throws Exception;
 }

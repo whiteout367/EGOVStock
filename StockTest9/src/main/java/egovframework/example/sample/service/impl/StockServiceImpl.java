@@ -34,8 +34,23 @@ public class StockServiceImpl implements StockService{
     }
     
     @Override
-    public void updateStock(UpdateVO updateVo) throws Exception {
-        stockDao.updateStock(updateVo);
+    public StockVO selectDetail(int code) throws Exception {
+        return stockDao.selectDetail(code);
+    }
+    
+    @Override
+    public void updateStock(StockVO stockVo) throws Exception {
+        stockDao.updateStock(stockVo);
+    }
+    
+    @Override
+    public void deleteStock(int code) throws Exception {
+        stockDao.deleteStock(code);
+    }
+    
+    @Override
+    public void insertStock(StockVO stockVo) throws Exception {
+        stockDao.insertStock(stockVo);
     }
     
     @Override

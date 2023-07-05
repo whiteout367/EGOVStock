@@ -84,7 +84,7 @@ a{
           <c:forEach items="${list }" var="result">
 					<tr>
 						<td><c:out value="${result.kind}" /></td>
-						<td><c:out value="${result.code}" /></td>
+						<td><a href="stockDetail.do?code=${result.code}"><c:out value="${result.code}" /></a></td>
 						<td><c:out value="${result.barcode}" /></td>
 						<td><c:out value="${result.partname}" /></td>
 						<td><c:out value="${result.std}" /></td>
@@ -103,10 +103,10 @@ a{
 
     </div>
     <br>
-    <div class="pagination" style = "text-align: center;">
+    <div class="pagination justify-content-center">
     	<ul><ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="linkPage"/></ul>
 	</div>
-
+	<a class="btn btn-outline-info" style="float:right" href="stockRegister.do">글쓰기</a>
 
 </body>
 <script type="text/javascript">

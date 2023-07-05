@@ -26,9 +26,15 @@ public class StockDAOImpl implements StockDAO {
     }
     
     @Override
-    public void updateStock(UpdateVO updateVo) throws Exception {
+    public StockVO selectDetail(int code) throws Exception {
+        StockMapper mapper = sqlSession.getMapper(StockMapper.class);
+        return mapper.selectDetail(code);
+    }
+    
+    @Override
+    public void updateStock(StockVO stockVo) throws Exception {
     	StockMapper mapper = sqlSession.getMapper(StockMapper.class);
-        mapper.updateStock(updateVo);
+        mapper.updateStock(stockVo);
     }
     
     @Override
@@ -43,5 +49,15 @@ public class StockDAOImpl implements StockDAO {
         return mapper.selectStockList(stockVo);
     }
     
- 
+    @Override
+    public void insertStock(StockVO stockVo) throws Exception {
+        StockMapper mapper = sqlSession.getMapper(StockMapper.class);
+        mapper.insertStock(stockVo);
+    }
+    
+    @Override
+    public void deleteStock(int code) throws Exception {
+        StockMapper mapper = sqlSession.getMapper(StockMapper.class);
+        mapper.deleteStock(code);
+    }
 }

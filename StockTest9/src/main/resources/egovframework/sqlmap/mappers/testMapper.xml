@@ -23,6 +23,12 @@
         
     </select>
     
+    <!-- 게시글 상세보기 -->
+    <select id="selectDetail" parameterType="Integer" resultType="egovframework.example.sample.vo.StockVO">
+        SELECT * FROM stock
+        WHERE code = #{code}
+    </select>
+    
      <select id="selectStockList" resultType="egovframework.example.sample.vo.StockVO">
           SELECT * FROM stock
         
@@ -45,11 +51,21 @@
         </where>
     </select>
     
-     <update id="updateStock" parameterType="egovframework.example.sample.vo.UpdateVO">
+     <update id="updateStock" parameterType="egovframework.example.sample.vo.StockVO">
         UPDATE stock SET
         box = #{box}, stock = #{stock}
-        WHERE barcode = #{barcode}
+        WHERE code = #{code}
     </update>
-
-
+	
+	<!-- 게시글 삽입 -->
+    <insert id="insertStock" parameterType="egovframework.example.sample.vo.StockVO">
+        INSERT INTO stock(kind, code, barcode, partname, std, qtybox, box, stock)
+        VALUES(#{kind},#{code},#{barcode},#{partname},#{std},#{qtybox},#{box},#{stock})
+    </insert>
+    
+	<!-- 게시글 삭제 -->
+    <delete id="deleteStock" parameterType="Integer">
+        DELETE FROM stock
+        WHERE code = #{code}
+    </delete>
 </mapper>

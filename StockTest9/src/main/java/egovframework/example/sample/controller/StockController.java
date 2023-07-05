@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import egovframework.example.sample.service.StockMapper;
 import egovframework.example.sample.service.StockService;
 import egovframework.example.sample.vo.SearchVO;
 import egovframework.example.sample.vo.StockVO;
@@ -70,6 +71,17 @@ public class StockController {
     	return "stockList";
     }
     
+    //글 상세페이지
+    @RequestMapping(value="stockDetail.do")
+    public String viewForm(Model model, HttpServletRequest request) throws Exception{
+        int code = Integer.parseInt(request.getParameter("code"));
+        
+        StockVO testVo = stockService.selectDetail(code);
+        model.addAttribute("vo", testVo);
+        
+        return "stockDetail";
+    }
+    
     @RequestMapping(value = "/excelDown.do")
 
     @ResponseBody
@@ -81,21 +93,36 @@ public class StockController {
 
     }
     
-    @RequestMapping(value="/updateStock.do", method = RequestMethod.GET)
-    public void updateStock(HttpServletRequest request) throws Exception {
-    	UpdateVO updateVo = new UpdateVO();
-    	String barcode = request.getParameter("barcode");
-    	String box = request.getParameter("box");
-    	String stock = request.getParameter("stock");
+    @RequestMapping(value="/updateStock.do")
+    public String updateStock(@ModelAttribute("stock")StockVO stockVo) throws Exception {
     	
-    	updateVo.setBarcode(barcode);
-    	updateVo.setBox(box);
-    	updateVo.setStock(stock);
-    	
-    	stockService.updateStock(updateVo);
+    	System.out.println(stockVo.getCode());
+    	stockService.updateStock(stockVo);
+       	
+    	return "redirect:stockDetail.do?code="+stockVo.getCode();
     	
     }
-
-
+    
+  //글삭제
+    @RequestMapping(value="/deleteStock.do")
+    public String deleteStock(HttpServletRequest request) throws Exception {
+        int testId = Integer.parseInt(request.getParameter("code"));
+        System.out.println(testId);
+        stockService.deleteStock(testId);
+        return "redirect:stockList.do";
+    }
+    
+    //글작성페이지
+    @RequestMapping(value="/stockRegister.do")
+    public String testRegister(){
+        return "stockRegister";
+    }
+    
+    //글쓰기
+    @RequestMapping(value="/insertStock.do")
+    public String write(@ModelAttribute("insert") StockVO stockVo) throws Exception {
+        stockService.insertStock(stockVo);
+        return "redirect:stockList.do";
+    }
 
 }
