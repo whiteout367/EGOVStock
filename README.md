@@ -29,6 +29,12 @@ stockList.do
 search
 ![search](https://github.com/whiteout367/EGOVStock/assets/75378861/ed9f1611-dc8c-46f1-9e63-9f93b3acd3d7)
 
+update and delete
+![detail_update_delete](https://github.com/whiteout367/EGOVStock/assets/75378861/2a6e4286-5fc6-44bb-9dcb-d21828f01acc)
+
+insert new product
+![insert_new_product](https://github.com/whiteout367/EGOVStock/assets/75378861/f845c186-b24d-4a15-b96d-d94ba8799c13)
+
 excel_download
 ![excel_download](https://github.com/whiteout367/EGOVStock/assets/75378861/5ac2bc6d-4d21-4b4d-a122-c14eb7ea2d13)
 
