@@ -10,6 +10,7 @@ import egovframework.example.sample.dao.StockDAO;
 import egovframework.example.sample.service.StockMapper;
 import egovframework.example.sample.vo.SearchVO;
 import egovframework.example.sample.vo.StockVO;
+import egovframework.example.sample.vo.TotalCountVO;
 import egovframework.example.sample.vo.UpdateVO;
 
 @Repository
@@ -29,12 +30,18 @@ public class StockDAOImpl implements StockDAO {
     	StockMapper mapper = sqlSession.getMapper(StockMapper.class);
         mapper.updateStock(updateVo);
     }
- 
+    
+    @Override
+    public int getBoardListCnt(SearchVO searchVo) throws Exception {
+    	StockMapper mapper = sqlSession.getMapper(StockMapper.class);
+        return mapper.getBoardListCnt(searchVo);
+    }
     
     @Override
     public List<StockVO> selectStockList(StockVO stockVo) throws Exception {
         StockMapper mapper = sqlSession.getMapper(StockMapper.class);
         return mapper.selectStockList(stockVo);
     }
+    
  
 }

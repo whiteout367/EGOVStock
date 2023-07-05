@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,11 +18,38 @@
 a{
  text-decoration: auto;
 }
+.pagination {
+	
+}
 </style>
 </head>
 <body>
+
  <br/>
     <h1 class="text-center">Stock List</h1>
+    <div class="form-group row">
+ 
+            <div class="w100" style="padding-right: 10px">
+                <select class="form-control form-control-sm" name="searchType" id="searchType">
+                    <option value="code">코드</option>
+                    <option value="barcode">바코드</option>
+                    <option value="partname">제품이름</option>
+                </select>
+            </div>
+ 
+            <div class="w300" style="padding-right: 10px">
+                <input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+            </div>
+ 
+            <div>
+                <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
+            </div>
+ 
+        </div>
+        <form action="/excelDown.do" method="post">
+  
+   			<input type="submit" value='엑셀 다운로드'>
+		</form>
     <br/>
     <br/>
     <div class="container">
@@ -69,34 +97,16 @@ a{
 				</tbody>
 			</table>
         <hr/>
-	        <div class="form-group row">
- 
-            <div class="w100" style="padding-right: 10px">
-                <select class="form-control form-control-sm" name="searchType" id="searchType">
-                    <option value="code">코드</option>
-                    <option value="barcode">바코드</option>
-                    <option value="partname">제품이름</option>
-                </select>
-            </div>
- 
-            <div class="w300" style="padding-right: 10px">
-                <input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
-            </div>
- 
-            <div>
-                <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
-            </div>
- 
-        </div>
-        <form action="/excelDown.do" method="post">
-  
-   		<input type="submit" value='엑셀 다운로드'>
-</form>
+	        
 
 
 
     </div>
     <br>
+    <div class="pagination" style = "text-align: center;">
+    	<ul><ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="linkPage"/></ul>
+	</div>
+
 
 </body>
 <script type="text/javascript">
@@ -113,4 +123,9 @@ a{
     });    
  
     </script>
+    <script type="text/javascript">
+	function linkPage(pageNo){
+		location.href = "/stockList.do?pageNo="+pageNo;
+	}	
+</script>
 </html>

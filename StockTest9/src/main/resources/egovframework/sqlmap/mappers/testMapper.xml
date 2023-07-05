@@ -16,7 +16,10 @@
                 partname like CONCAT('%',#{keyword},'%')
             </if>
         </where>
-        limit #firstIndex#, #recordCountPerPage#
+        
+        	limit #{firstIndex}, #{recordCountPerPage}
+       
+        
         
     </select>
     
@@ -24,6 +27,22 @@
           SELECT * FROM stock
         
         
+    </select>
+    
+    <select id="getBoardListCnt" resultType="Integer">
+        SELECT count(*) as listCnt
+        FROM stock
+        <where>
+            <if test="searchType=='code' and keyword != null and keyword !=''">
+                code like CONCAT('%',#{keyword},'%')
+            </if>
+            <if test="searchType=='barcode' and keyword != null and keyword !=''">
+                barcode like CONCAT('%',#{keyword},'%')
+            </if>
+            <if test="searchType=='partname' and keyword != null and keyword !=''">
+                partname like CONCAT('%',#{keyword},'%')
+            </if>
+        </where>
     </select>
     
      <update id="updateStock" parameterType="egovframework.example.sample.vo.UpdateVO">

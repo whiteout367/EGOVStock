@@ -19,6 +19,7 @@ import egovframework.example.sample.dao.StockDAO;
 import egovframework.example.sample.service.StockService;
 import egovframework.example.sample.vo.SearchVO;
 import egovframework.example.sample.vo.StockVO;
+import egovframework.example.sample.vo.TotalCountVO;
 import egovframework.example.sample.vo.UpdateVO;
 
 @Service
@@ -36,7 +37,11 @@ public class StockServiceImpl implements StockService{
     public void updateStock(UpdateVO updateVo) throws Exception {
         stockDao.updateStock(updateVo);
     }
-
+    
+    @Override
+    public int getBoardListCnt(SearchVO searchVo) throws Exception {
+        return stockDao.getBoardListCnt(searchVo);
+    }
     
     @Override
 
