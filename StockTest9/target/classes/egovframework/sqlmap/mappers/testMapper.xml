@@ -7,16 +7,16 @@
           SELECT * FROM stock
         <where>
             <if test="searchType=='code' and keyword != null and keyword !=''">
-                AND code like CONCAT('%',#{keyword},'%')
+                code like CONCAT('%',#{keyword},'%')
             </if>
             <if test="searchType=='barcode' and keyword != null and keyword !=''">
-                AND barcode like CONCAT('%',#{keyword},'%')
+                barcode like CONCAT('%',#{keyword},'%')
             </if>
             <if test="searchType=='partname' and keyword != null and keyword !=''">
-                AND partname like CONCAT('%',#{keyword},'%')
+                partname like CONCAT('%',#{keyword},'%')
             </if>
         </where>
-        limit 100
+        limit #firstIndex#, #recordCountPerPage#
         
     </select>
     
