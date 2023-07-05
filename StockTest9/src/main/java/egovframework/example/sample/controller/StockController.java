@@ -124,5 +124,5 @@ public class StockController {
         stockService.insertStock(stockVo);
         return "redirect:stockList.do";
     }
-
+    
 }
