@@ -26,6 +26,7 @@ public class StockController {
     public String testListDo(Model model
     		,@RequestParam(required=false,defaultValue="code")String searchType
             ,@RequestParam(required=false)String keyword
+            ,@RequestParam(value="pageNo", required=false) String pageNo
             ,@ModelAttribute("search")SearchVO searchVo)throws Exception{
       
     	
@@ -34,7 +35,7 @@ public class StockController {
     	searchVo.setKeyword(keyword);
         
         model.addAttribute("list", stockService.selectStock(searchVo));
-
+        
 
         
         
