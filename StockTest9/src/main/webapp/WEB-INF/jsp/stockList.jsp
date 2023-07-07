@@ -22,30 +22,38 @@ a{
 	margin-top: 20px
 }
 .w100{
-	display: inline-block;
-    margin-top: 30px;
-    margin-left: 260px;
+	margin:auto; 
+    text-align:center;
 }
 
 .w100 input{
   height: 30px;
   width: 500px;
+   
+  
+}
+#keyword{
+	margin: auto;
 }
 #btnSearch{
   width: 500px;
   height: 36px;
+  margin: auto;
 }
 
 #insert{
-	display: inline-block;
+	margin:auto; 
+    text-align:center;
     margin-top: 30px;
-    margin-left: 260px;
+    
+    
 }
 
 #insert_btn{
 	height: 40px;
   	width: 500px;
-  	margin-bottom:50px;
+  	
+  	margin: auto;
 }
 </style>
 </head>
@@ -56,7 +64,7 @@ a{
     <div class="form-group row">
  
             <div class="w100" style="padding-right: 10px">
-                <select class="form-control form-control-sm" name="searchType" id="searchType" style = "width: 500px;">
+                <select class="form-control form-control-sm" name="searchType" id="searchType" style = "width: 500px; margin: auto;">
                     <option value="code">코드</option>
                     <option value="barcode">바코드</option>
                     <option value="partname">제품이름</option>
