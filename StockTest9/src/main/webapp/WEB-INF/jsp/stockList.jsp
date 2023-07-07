@@ -18,8 +18,34 @@
 a{
  text-decoration: auto;
 }
-.pagination {
-	
+#btn_group{
+	margin-top: 20px
+}
+.w100{
+	display: inline-block;
+    margin-top: 30px;
+    margin-left: 260px;
+}
+
+.w100 input{
+  height: 30px;
+  width: 500px;
+}
+#btnSearch{
+  width: 500px;
+  height: 36px;
+}
+
+#insert{
+	display: inline-block;
+    margin-top: 30px;
+    margin-left: 260px;
+}
+
+#insert_btn{
+	height: 40px;
+  	width: 500px;
+  	margin-bottom:50px;
 }
 </style>
 </head>
@@ -30,26 +56,25 @@ a{
     <div class="form-group row">
  
             <div class="w100" style="padding-right: 10px">
-                <select class="form-control form-control-sm" name="searchType" id="searchType">
+                <select class="form-control form-control-sm" name="searchType" id="searchType" style = "width: 500px;">
                     <option value="code">코드</option>
                     <option value="barcode">바코드</option>
                     <option value="partname">제품이름</option>
                 </select>
-            </div>
- 
-            <div class="w300" style="padding-right: 10px">
+                
                 <input type="text" class="form-control form-control-sm" name="keyword" id="keyword">
+                <div id = "btn_group">
+                	<button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
+                	<form action="/excelDown.do" method="post" style = "margin-top: 20px">
+   						<input type="submit" value='엑셀 다운로드'>
+					</form>
+					
+                </div>
+                
             </div>
- 
-            <div>
-                <button class="btn btn-sm btn-primary" name="btnSearch" id="btnSearch">검색</button>
-            </div>
- 
+ 			
         </div>
-        <form action="/excelDown.do" method="post">
-  
-   			<input type="submit" value='엑셀 다운로드'>
-		</form>
+        
     <br/>
     <br/>
     <div class="container">
@@ -106,8 +131,9 @@ a{
     <div class="pagination justify-content-center">
     	<ul><ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="linkPage"/></ul>
 	</div>
-	<a class="btn btn-outline-info" style="float:right" href="stockRegister.do">글쓰기</a>
-
+	<div id = "insert">
+		<a class="btn btn-outline-info" id = "insert_btn" href="stockRegister.do">제품 추가하기</a>
+	</div>
 </body>
 <script type="text/javascript">
         
